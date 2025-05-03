@@ -1,0 +1,15 @@
+<div class="game-container">
+    <h2>Tic Tac Toe - {{ boardSize }}x{{ boardSize }}, Win {{ winCondition }} in row</h2>
+    <h2> Player {{ players}} will play</h2>
+    <p *ngIf="winner" class="winner">Player {{ winner }} wins!!</p>
+    <p *ngIf="isDraw && !winner" class="winner">Match draw!!</p>
+    <table>
+      <tr *ngFor="let row of board; let i = index">
+        <td *ngFor="let cell of row; let j = index" (click)="playMove(i, j)">
+          {{ cell }}
+        </td>
+      </tr>
+    </table>
+    <button (click)="resetGame()">Reset Game</button>
+  </div>
+  
